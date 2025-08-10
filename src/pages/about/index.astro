@@ -1,0 +1,109 @@
+---
+import PageLayout from '@/layouts/CommonPage.astro'
+import ToolSection from '@/components/about/ToolSection.astro'
+
+const headings = [
+  { depth: 2, slug: 'tools', text: 'Công cụ mình dùng' }
+]
+---
+
+<PageLayout title='Giới thiệu' {headings} info={{ slug: '/about', hideComment: true }}>
+  <p>
+    Đây không phải nơi để tìm flag hay đáp án nhanh.
+  </p>
+
+  <p>
+    Thay vào đó, mình chỉ chia sẻ lại <b><i>quy trình thực hiện</i></b>, các bước mình đã làm, và cách mình hiểu vấn đề — để vừa giúp mình ghi nhớ, vừa có thể học theo cách chủ động hơn.
+  </p>
+
+  <p>
+    Nếu bạn cũng đang học bảo mật, hy vọng bạn sẽ tìm được điều gì đó hữu ích tại đây.
+  </p>
+
+  <p>
+    Và nếu bạn phát hiện sai sót hoặc điểm nào chưa chính xác trong nội dung mình viết, đừng ngần ngại gửi mail cho mình qua: <b><i>quangthaictc@gmail.com</i></b>  
+  </p>
+
+  <p>
+    Điều đó sẽ giúp mình học tốt hơn và cải thiện nội dung một cách chính xác hơn 🙌
+  </p>
+
+  {/* tools */}
+  <h2 id='tools'>Công cụ mình dùng</h2>
+  <p>Dưới đây là danh sách công cụ mình hay dùng cho học tập và làm việc:</p>
+  <ToolSection
+    class='mb-5'
+    title='Chỉnh sửa file/mã nguồn'
+    tools={[
+      {
+        name: 'Visual Studio Code',
+        description: 'IDE chính mình hay dùng.',
+        href: 'https://code.visualstudio.com/',
+        icon: import('@/assets/tools/vscode.svg?raw')
+      },
+      {
+        name: 'Neovim',
+        description: 'Mình dùng trên Linux để truy cập file nhanh.',
+        href: 'https://neovim.io/',
+        icon: import('@/assets/tools/neovim.svg?raw')
+      }
+    ]}
+  />
+
+  <ToolSection
+    class='mb-5'
+    title='Ảo hóa'
+    tools={[
+      {
+        name: 'VMware Workstation Pro',
+        description: 'Ứng dụng triển khai máy ảo.',
+        href: 'https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true',
+        icon: import('@/assets/tools/vmware.svg?raw')
+      },
+      {
+        name: 'Kali Linux',
+        description: 'Hệ điều hành chứa đầy đủ công cụ bảo mật.',
+        href: 'https://www.kali.org/',
+        icon: import('@/assets/tools/kalilinux.svg?raw')
+      }
+    ]}
+  />
+
+  <ToolSection
+    class='mb-5'
+    title='Mã hóa/Giải mã'
+    tools={[
+      {
+        name: 'CyberChef',
+        description: 'Công cụ mã hóa/giải mã đa năng.',
+        href: 'https://gchq.github.io/CyberChef/',
+        icon: import('@/assets/tools/cyberchef.svg?raw')
+      },
+      {
+        name: 'Obfuscator.io Deobfuscator',
+        description: 'Công cụ này giải các đoạn code JS bị làm rối.',
+        href: 'https://obf-io.deobfuscate.io/',
+        icon: import('@/assets/tools/javascript.svg?raw')
+      }
+    ]}
+  />
+
+  <ToolSection
+    class='mb-5'
+    title='Kiểm thử '
+    tools={[
+      {
+        name: 'Exploit Database',
+        description: 'Công cụ tìm kiếm lỗ hổng bảo mật.',
+        href: 'https://www.exploit-db.com/',
+        icon: import('@/assets/tools/exploitdb.svg?raw')
+      },
+      {
+        name: 'Burp Suite',
+        description: 'Công cụ kiểm thử bảo mật web.',
+        href: 'https://portswigger.net/burp/documentation/desktop/getting-started/download-and-install',
+        icon: import('@/assets/tools/burpsuite.svg?raw')
+      }
+    ]}
+  />
+</PageLayout>

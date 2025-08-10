@@ -1,0 +1,46 @@
+{
+  "linkList": [
+    {
+      "id_name": "study-links",
+      "desc": "Study links",
+      "link_list": [
+        {
+          "name": "TryHackMe",
+          "intro": "",
+          "link": "https://tryhackme.com/",
+          "avatar": "/images/tryhackme.png"
+        },
+        {
+          "name": "PortSwigger",
+          "intro": "",
+          "link": "https://portswigger.net/web-security/all-topics",
+          "avatar": "/images/portswigger.png"
+        }
+      ]
+    },
+    {
+      "id_name": "cheat-sheet-links",
+      "desc": "Cheat sheet links",
+      "link_list": [
+        {
+          "name": "Nmap",
+          "intro": "",
+          "link": "https://stationx-public-download.s3.us-west-2.amazonaws.com/nmap_cheet_sheet_v7.pdf",
+          "avatar": "/images/nmap.png"
+        },
+        {
+          "name": "Reverse shell",
+          "intro": "",
+          "link": "https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md",
+          "avatar": "/images/reverse-shell.png"
+        },
+        {
+          "name": "Payload Box",
+          "intro": "",
+          "link": "https://github.com/payloadbox",
+          "avatar": "/images/payload-box.png"
+        }
+      ]
+    }
+  ]
+}

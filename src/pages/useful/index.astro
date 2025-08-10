@@ -1,0 +1,24 @@
+---
+import PageLayout from '@/layouts/CommonPage.astro'
+import links from 'public/links.json'
+import LinkList from '@/components/useful/LinkList.astro'
+
+const headings = [
+  { depth: 2, slug: 'study-links', text: 'Học tập' },
+  { depth: 2, slug: 'cheat-sheet-links', text: 'Cheat Sheet' }
+]
+
+const { linkList } = links
+---
+
+<PageLayout title='Hữu ích' {headings} info={{ slug: '/useful', hideComment: true }}>
+  <p>Phía dưới là những trang, tài nguyên hữu ích mình hay truy cập. Hy vọng hữu ích với bạn 🫣</p>
+  <h2 id='study-links'>Học tập</h2>
+
+  <LinkList list={linkList[0]} />
+
+  <h2 id='cheat-sheet-links'>Cheat Sheet</h2>
+
+  <LinkList list={linkList[1]} />
+
+</PageLayout>
