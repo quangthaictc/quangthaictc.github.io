@@ -9,7 +9,7 @@ import PageLayout from '@/layouts/BaseLayout.astro'
 // import ProjectCard from '@/components/home/ProjectCard.astro'
 import Section from '@/components/home/Section.astro'
 // import SkillLayout from '@/components/home/SkillLayout.astro'
-import avatar from '@/assets/avatar.png'
+import avatar from '@/assets/avatar.jpg'
 import config from '@/site-config'
 
 const MAX_POSTS = 5
@@ -17,7 +17,7 @@ const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 ---
 
-<PageLayout meta={{ title: 'Trang chủ' }} highlightColor='#DDB9A1'>
+<PageLayout meta={{ title: 'Trang chủ' }} highlightColor='#b6e3ff'>
   <main class='flex w-full flex-col items-center'>
     <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
       <Image
@@ -55,13 +55,13 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           ></span>
           <span class='size-2 rounded-full bg-green-400'></span>
         </span>
-        <p class='font-medium text-muted-foreground'>Trying to do better</p>
+        <p class='font-medium text-muted-foreground'>Ai cũng phải bắt đầu từ đâu đó 🤫</p>
       </a>
     </section>
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='Giới thiệu'>
-        <p class='text-muted-foreground'>Pentester / Red team</p>
+        <p class='text-muted-foreground'>Jr Pentester</p>
         <p class='text-muted-foreground'>
           Mình đang theo học ngành An toàn thông tin và đặc biệt hứng thú với các lỗ hổng bảo mật.
           Trang web này là nơi mình ghi lại hành trình học tập của bản thân — từ lab, CTF cho tới các kỹ thuật mà mình tìm hiểu được.

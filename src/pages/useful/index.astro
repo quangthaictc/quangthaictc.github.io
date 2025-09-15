@@ -1,11 +1,12 @@
 ---
 import PageLayout from '@/layouts/CommonPage.astro'
 import links from 'public/links.json'
+import ToolSection from '@/components/about/ToolSection.astro'
 import LinkList from '@/components/useful/LinkList.astro'
 
 const headings = [
-  { depth: 2, slug: 'study-links', text: 'Học tập' },
-  { depth: 2, slug: 'cheat-sheet-links', text: 'Cheat Sheet' }
+  { depth: 2, slug: 'cheat-sheet-links', text: 'Cheat Sheet' },
+  { depth: 2, slug: 'tools', text: 'Công cụ mình dùng' }
 ]
 
 const { linkList } = links
@@ -13,12 +14,113 @@ const { linkList } = links
 
 <PageLayout title='Hữu ích' {headings} info={{ slug: '/useful', hideComment: true }}>
   <p>Phía dưới là những trang, tài nguyên hữu ích mình hay truy cập. Hy vọng hữu ích với bạn 🫣</p>
-  <h2 id='study-links'>Học tập</h2>
-
-  <LinkList list={linkList[0]} />
 
   <h2 id='cheat-sheet-links'>Cheat Sheet</h2>
 
-  <LinkList list={linkList[1]} />
+  <LinkList list={linkList[0]} />
+
+  {/* tools */}
+  <h2 id='tools'>Công cụ mình dùng</h2>
+  <p>Dưới đây là danh sách công cụ mình hay dùng cho học tập và làm việc:</p>
+  <ToolSection
+    class='mb-5'
+    title='Chỉnh sửa file/mã nguồn'
+    tools={[
+      {
+        name: 'Visual Studio Code',
+        description: 'IDE chính mình hay dùng.',
+        href: 'https://code.visualstudio.com/',
+        icon: import('@/assets/tools/vscode.svg?raw')
+      },
+      {
+        name: 'Neovim',
+        description: 'Mình dùng trên Linux để truy cập file nhanh.',
+        href: 'https://neovim.io/',
+        icon: import('@/assets/tools/neovim.svg?raw')
+      }
+    ]}
+  />
+
+  <ToolSection
+    class='mb-5'
+    title='Ảo hóa'
+    tools={[
+      {
+        name: 'VMware Workstation Pro',
+        description: 'Ứng dụng triển khai máy ảo.',
+        href: 'https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true',
+        icon: import('@/assets/tools/vmware.svg?raw')
+      },
+      {
+        name: 'Kali Linux',
+        description: 'Hệ điều hành chứa đầy đủ công cụ bảo mật.',
+        href: 'https://www.kali.org/',
+        icon: import('@/assets/tools/kalilinux.svg?raw')
+      }
+    ]}
+  />
+
+  <ToolSection
+    class='mb-5'
+    title='Mã hóa/Giải mã'
+    tools={[
+      {
+        name: 'CyberChef',
+        description: 'Công cụ mã hóa/giải mã đa năng.',
+        href: 'https://gchq.github.io/CyberChef/',
+        icon: import('@/assets/tools/cyberchef.svg?raw')
+      },
+      {
+        name: 'Obfuscator.io Deobfuscator',
+        description: 'Công cụ này giải các đoạn code JS bị làm rối.',
+        href: 'https://obf-io.deobfuscate.io/',
+        icon: import('@/assets/tools/javascript.svg?raw')
+      }
+    ]}
+  />
+
+  <ToolSection
+    class='mb-5'
+    title='Kiểm thử xâm nhập'
+    tools={[
+      {
+        name: 'Exploit Database',
+        description: 'Công cụ tìm kiếm lỗ hổng bảo mật.',
+        href: 'https://www.exploit-db.com/',
+        icon: import('@/assets/tools/exploitdb.svg?raw')
+      },
+      {
+        name: 'Burp Suite',
+        description: 'Công cụ kiểm thử bảo mật web.',
+        href: 'https://portswigger.net/burp/documentation/desktop/getting-started/download-and-install',
+        icon: import('@/assets/tools/burpsuite.svg?raw')
+      },
+      {
+        name: 'Metasploit',
+        description: 'Công cụ khai thác lỗ hổng bảo mật.',
+        href: 'https://www.metasploit.com/download',
+        icon: import('@/assets/tools/metasploit.svg?raw')
+      },
+      {
+        name: 'GTFOBins',
+        description: 'Binary Unix giúp leo thang đặc quyền.',
+        href: 'https://www.metasploit.com/download',
+        icon: import('@/assets/tools/gtfobins.svg?raw')
+      }
+    ]}
+  />
+
+   <ToolSection
+    class='mb-5'
+    title='Network'
+    tools={[
+      {
+        name: 'Wireshark',
+        description: 'Công cụ capture các gói tin trong mạng.',
+        href: 'https://www.exploit-db.com/',
+        icon: import('@/assets/tools/wireshark.svg?raw')
+      }
+    ]}
+  />
 
 </PageLayout>

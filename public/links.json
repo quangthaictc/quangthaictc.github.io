@@ -1,24 +1,6 @@
 {
   "linkList": [
     {
-      "id_name": "study-links",
-      "desc": "Study links",
-      "link_list": [
-        {
-          "name": "TryHackMe",
-          "intro": "",
-          "link": "https://tryhackme.com/",
-          "avatar": "/images/tryhackme.png"
-        },
-        {
-          "name": "PortSwigger",
-          "intro": "",
-          "link": "https://portswigger.net/web-security/all-topics",
-          "avatar": "/images/portswigger.png"
-        }
-      ]
-    },
-    {
       "id_name": "cheat-sheet-links",
       "desc": "Cheat sheet links",
       "link_list": [
