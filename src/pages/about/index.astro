@@ -1,6 +1,5 @@
 ---
 import PageLayout from '@/layouts/CommonPage.astro'
-import { LinkPreview } from 'astro-pure/advanced'
 ---
 
 <PageLayout title='Giới thiệu' info={{ slug: '/about', hideComment: true }}>
@@ -26,12 +25,6 @@ import { LinkPreview } from 'astro-pure/advanced'
   <p>
     Điều đó sẽ giúp mình học tốt hơn và cải thiện nội dung một cách chính xác hơn 🙌
   </p>
-
-  {/* works */}
-  <h2 id='works'>Những gì mình đã/đang làm</h2>
-  <p>Dưới đây là danh sách công cụ mình hay dùng cho học tập và làm việc:</p>
-
-  <LinkPreview href='https://github.com/quangthaictc/LeetCode-Solutions.git' />
 
   <br>
 </PageLayout>
