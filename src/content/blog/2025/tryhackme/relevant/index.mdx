@@ -1,0 +1,96 @@
+---
+title: "Revelevant"
+description: "Thử thách kiểm thử xâm nhập."
+publishDate: 2025-09-22
+tags: 
+- TryHackMe
+- CTF - Capture The Flag
+- Offensive Pentesting
+- Challenges
+- Privilege Escalation
+draft: false
+language: 'Việt Nam'
+heroImage: { src: './thumbnail.jpeg', color: '#7296ee' }
+---
+
+import { Aside } from 'astro-pure/user'
+
+## Thu thập thông tin
+
+### Nmap scan
+
+Sử dụng công cụ `nmap` mình tìm được 2 port HTTP và 1 port SMB có khả năng khai thác.
+
+![img](imgs/1.png)
+
+Truy cập vào 2 trang Web thì cả 2 đều có giao diện Web mặc định của IIS.
+
+![img](imgs/2.png)
+
+### Gobuster
+
+Sử dụng công cụ `gobuster`, mình scan ra được một đường dẫn như sau:
+
+```
+/nt4wrksv             (Status: 301) [Size: 159]
+```
+
+Nhưng khi truy cập thì là một trang trống và không có gì.
+
+### Dịch vụ SMB
+
+Liệt kê danh sách thư mục share của mục tiêu, mình tìm thấy một thư mục giống như đường dẫn scan từ `gobuster`.
+
+![img](imgs/3.png)
+
+Truy cập vào thư mục này thì mình phát hiện một file tên `passwords.txt`, nhìn vào nội dung file thì đây là mật khẩu được mã hóa base64 khá quen thuộc.
+
+![img](imgs/4.png)
+
+Giải ra thì mình nhận được mật khẩu của người dùng `Bob` và `Bill`.
+
+![img](imgs/5.png)
+
+Mình cũng thử truy cập lại trang web với đường dẫn kèm file này, thì mình xác nhận được là nó đã truy cập cùng một thư mục.
+
+![img](imgs/6.png)
+
+## Flag 1
+
+### Upload reverse shell
+
+Từ các thông tin tìm được, mình thực hiện upload một reverse shell với định dạng `.aspx` của [borjmz](https://github.com/borjmz/aspx-reverse-shell/raw/refs/heads/master/shell.aspx) vì đây là server IIS, nó sẽ hỗ trợ thực thi file này rất tốt.
+
+![img](imgs/7.png)
+
+### Truy cập iis apppool và flag
+
+Sau khi up load shell thành công, mình mở một listener netcat và truy cập vào file reverse shell vừa upload thì mình đã chiếm được quyền truy cập vào `iis apppool\defaultapppool`
+
+![img](imgs/8.png)
+
+Và mình tìm thấy flag tại file `user.txt` trong thư mục `Desktop` của người dùng `Bob`.
+
+![img](imgs/9.png)
+
+## Flag 2
+
+### PrintSpoofer
+
+Khi kiểm tra các đặc quyền của người dùng này, mình phát hiện đặc quyền `SeImpersonatePrivilege` đang `enabled`.
+
+![img](imgs/10.png)
+
+Có một bản khai thác công khai có tên [PrintSpoofer](https://github.com/itm4n/PrintSpoofer). Mình thực hiện chuyển file này sang máy mục tiêu và do trước đó mình dùng SMB nên không biết đường dẫn trong máy của file này nằm ở đâu nên mình tìm và thấy nó nằm tại `C:\inetpub\wwwroot\nt4wrksv`.
+
+![img](imgs/11.png)
+
+### Truy cập vào SYSTEM và flag
+
+Thực thi file và mình đã chiếm được quyền truy cập vào `SYSTEM`.
+
+![img](imgs/12.png)
+
+Cuối cùng mình tìm thấy flag tại thư mục `Desktop` của `Administrator`.
+
+![img](imgs/13.png)
