@@ -1,0 +1,135 @@
+---
+import PageLayout from '@/layouts/CommonPage.astro'
+import ToolSection from '@/components/about/ToolSection.astro'
+---
+
+<PageLayout title='Công cụ'>
+  {/* tools */}
+  <h2>Các công cụ tôi hay dùng</h2>
+  <ToolSection
+    class='mb-5'
+    title='Công cụ bảo mật'
+    tools={[
+      {
+        name: 'Burp Suite',
+        description: 'Công cụ tiêu chuẩn khi kiểm thử bảo mật Web',
+        href: 'https://portswigger.net/burp/communitydownload',
+        icon: import('@/assets/tools/burpsuite.svg?raw')
+      },
+      {
+        name: 'Cyber Chef',
+        description: 'Tôi sẽ tạm gọi nó là công cụ mã hoá và giải mã đa năng',
+        href: 'https://gchq.github.io/CyberChef/',
+        icon: import('@/assets/tools/cyberchef.svg?raw')
+      },
+      {
+        name: 'ExploitDB',
+        description: 'Kho lưu trữ thông tin và kỹ thuật khai thác lỗ hổng bảo mật',
+        href: 'https://www.exploit-db.com/',
+        icon: import('@/assets/tools/exploitdb.svg?raw')
+      },
+      {
+        name: 'GTFOBins',
+        description: 'Nơi chứa danh sách các binary tồn tại lỗ hổng kèm kỹ thuật leo thang đặc quyền',
+        href: 'https://gtfobins.org/',
+        icon: import('@/assets/tools/gtfobins.svg?raw')
+      },
+      {
+        name: 'Metasploit',
+        description: 'Công cụ khai thác lỗ hổng bảo mật tự động nhưng cần một số kỹ thuật nâng cao',
+        href: 'https://www.metasploit.com/download',
+        icon: import('@/assets/tools/metasploit.svg?raw')
+      },
+      {
+        name: 'Nmap',
+        description: 'Công cụ thu thập thông tin về mục tiêu',
+        href: 'https://nmap.org/download',
+        icon: import('@/assets/tools/nmap.svg?raw')
+      }
+    ]}
+  />
+  <ToolSection
+  class='mb-5'
+  title='Coding'
+  tools={[
+      {
+        name: 'VS Code',
+        description: 'Code editor chính cho các thao tác hằng ngày',
+        href: 'https://code.visualstudio.com/download',
+        icon: import('@/assets/tools/vscode.svg?raw')
+      },
+      {
+        name: 'Neovim',
+        description: 'Đang tập tành dùng và setup bằng LazyVim',
+        href: 'https://neovim.io/doc/install/',
+        icon: import('@/assets/tools/neovim.svg?raw')
+      }
+    ]}
+  />
+  <ToolSection
+    class='mb-5'
+    title='Môi trường trên máy tính'
+    tools={[
+      {
+        name: 'Ubuntu 25.10',
+        description: 'Hệ điều hành chính cho thao tác hằng ngày',
+        href: 'https://ubuntu.com/download/desktop',
+        icon: import('@/assets/tools/ubuntu.svg?raw')
+      },
+      {
+        name: 'CachyOS Linux',
+        description: 'Tách một phân vùng nhỏ chủ yếu vọc vạch là chính',
+        href: 'https://cachyos.org/download/',
+        icon: import('@/assets/tools/cachyos.svg?raw')
+      },
+      {
+        name: 'Kali Linux',
+        description: 'Dùng trên máy ảo VMWare cho công việc bảo mật',
+        href: 'https://www.kali.org/get-kali/',
+        icon: import('@/assets/tools/kalilinux.svg?raw')
+      },
+      {
+        name: 'Windows 10',
+        description: 'Dùng trên máy ảo VMWare cho công việc bảo mật',
+        href: 'https://www.microsoft.com/en-us/software-download/windows10ISO',
+        icon: import('@/assets/tools/windows10.svg?raw')
+      },
+      {
+        name: 'WMWare Workstation Pro',
+        description: 'Nền tảng ảo hoá, hiện bản pro đã được miễn phí.',
+        href: 'https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true',
+        icon: import('@/assets/tools/vmware.svg?raw')
+      }
+    ]}
+  />
+  <ToolSection
+    class='mb-5'
+    title='Công cụ cơ bản'
+    tools={[
+      {
+        name: 'Chrome',
+        description: 'Trình duyệt sử dụng chính',
+        href: 'https://www.google.com/chrome/',
+        icon: import('@/assets/tools/chrome.svg?raw')
+      },
+      {
+        name: 'Firefox',
+        description: 'Trình duyệt này tôi thường dùng cho việc khai thác lỗ hổng web',
+        href: 'https://www.mozilla.org/en-US/firefox',
+        icon: import('@/assets/tools/firefox.svg?raw')
+      },
+      {
+        name: 'Obsidian',
+        description: 'Công cụ ghi chép',
+        href: 'https://obsidian.md/download',
+        icon: import('@/assets/tools/obsidian.svg?raw')
+      },
+      {
+        name: 'ONLYOFFICE',
+        description: 'Dùng để soạn thảo văn bản như Word',
+        href: 'https://www.onlyoffice.com/download-desktop',
+        icon: import('@/assets/tools/onlyoffice.svg?raw')
+      }
+    ]}
+  />
+</PageLayout>

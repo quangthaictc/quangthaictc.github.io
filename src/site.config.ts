@@ -1,0 +1,166 @@
+import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } from 'astro-pure/types'
+
+export const theme: ThemeUserConfig = {
+  // [Basic]
+  /** Title for your website. Will be used in metadata and as browser tab title. */
+  title: 'Ducker',
+  /** Will be used in index page & copyright declaration */
+  author: 'Quang Thái',
+  /** Description metadata for your website. Can be used in page metadata. */
+  description: 'Stay humble',
+  /** The default favicon for your Powhich should be a path to an image in the `public/` directory. */
+  favicon: '/favicon/favicon.ico',
+  /** The default social card image for your site which should be a path to an image in the `public/` directory. */
+  socialCard: '/images/social-card.png',
+  /** Specify the default language for this site. */
+  locale: {
+    lang: 'vi-VN',
+    attrs: 'vi-VN',
+    // Date locale
+    dateLocale: 'vi-VN',
+    dateOptions: {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    }
+  },
+  /** Set a logo image to show in the homepage. */
+  logo: {
+    src: '/src/assets/avatar.jpg',
+    alt: 'Avatar'
+  },
+
+  titleDelimiter: '•',
+  prerender: true, // pagefind search is not supported with prerendering disabled
+  npmCDN: 'https://cdn.jsdelivr.net/npm',
+
+  // Still in test
+  head: [
+    /* Telegram channel */
+    // {
+    //   tag: 'meta',
+    //   attrs: { name: 'telegram:channel', content: '@cworld0_cn' },
+    //   content: ''
+    // }
+  ],
+  customCss: [],
+
+  /** Configure the header of your site. */
+  header: {
+    menu: [
+      { title: 'Bài viết', link: '/blog' },
+      { title: 'Công cụ', link: '/tools' }
+    ]
+  },
+
+  /** Configure the footer of your site. */
+  footer: {
+    // Year format
+    year: `© ${new Date().getFullYear()}`,
+    // year: `© 2019 - ${new Date().getFullYear()}`,
+    links: [
+      // Registration link
+      {
+        title: 'Moe ICP 114514',
+        link: 'https://icp.gov.moe/?keyword=114514',
+        style: 'text-sm' // Uno/TW CSS class
+      },
+      // Privacy Policy link
+      {
+        title: 'Chính sách',
+        link: '/terms',
+        pos: 2 // position set to 2 will be appended to copyright line
+      }
+    ],
+    /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
+    credits: true,
+    /** Optional details about the social media accounts for this site. */
+    social: { github: 'https://github.com/quangthaictc' }
+  },
+
+  // [Content]
+  content: {
+    /** External links configuration */
+    externalLinks: {
+      content: ' ↗',
+      /** Properties for the external links element */
+      properties: {
+        style: 'user-select:none'
+      }
+    },
+    /** Blog page size for pagination (optional) */
+    blogPageSize: 8,
+    // Currently support weibo, x, bluesky
+    share: ['weibo', 'x', 'bluesky']
+  }
+}
+
+export const integ: IntegrationUserConfig = {
+  // [Search]
+  pagefind: true,
+  // Add a random quote to the footer (default on homepage footer)
+  // See: https://astro-pure.js.org/docs/integrations/advanced#web-content-render
+  // [Quote]
+  quote: {
+    // - Hitokoto
+    // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
+    // server: 'https://v1.hitokoto.cn/?c=i',
+    // target: `(data) => (data.hitokoto || 'Error')`
+    // - Quoteable
+    // https://github.com/lukePeavey/quotable
+    // server: 'http://api.quotable.io/quotes/random?maxLength=60',
+    // target: `(data) => data[0].content || 'Error'`
+    // - DummyJSON
+    server: 'local',
+    target: JSON.stringify([
+    "Vì ông trời biết bạn làm được nên mới cho bạn thử thách.",
+    "Sống tối giản để tâm trí thanh thản.",
+    "Hành trình vạn dặm bắt đầu từ một bước chân.",
+    "Trung thực với bản thân là bước đầu của sự khôn ngoan."
+  ])
+  },
+  // [Typography]
+  // https://unocss.dev/presets/typography
+  typography: {
+    class: 'prose text-base',
+    // The style of blockquote font `normal` / `italic` (default to italic in typography)
+    blockquoteStyle: 'italic',
+    // The style of inline code block `code` / `modern` (default to code in typography)
+    inlineCodeBlockStyle: 'modern'
+  },
+  // [Lightbox]
+  // A lightbox library that can add zoom effect
+  // https://astro-pure.js.org/docs/integrations/others#medium-zoom
+  mediumZoom: {
+    enable: true, // disable it will not load the whole library
+    selector: '.prose .zoomable',
+    options: {
+      className: 'zoomable'
+    }
+  }
+}
+
+export const terms: CardListData = {
+  title: 'Nội dung điều khoản',
+  list: [
+    {
+      title: 'Chính sách bảo mật',
+      link: '/terms/privacy-policy'
+    },
+    {
+      title: 'Điều khoản và Điều kiện',
+      link: '/terms/terms-and-conditions'
+    },
+    {
+      title: 'Bản quyền',
+      link: '/terms/copyright'
+    },
+    {
+      title: 'Tuyên bố miễn trừ trách nhiệm',
+      link: '/terms/disclaimer'
+    }
+  ]
+}
+
+const config = { ...theme, integ } as Config
+export default config

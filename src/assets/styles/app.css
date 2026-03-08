@@ -1,0 +1,61 @@
+/* Define new font */
+@font-face {
+  font-family: 'SF Pro Rounded';
+  /* Path: public/fonts */
+  src: url('/fonts/SF-Pro-Rounded-Semibold.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Theme */
+:root {
+  /* Primary */
+  --primary: 231 29% 45%;
+  /* Foreground */
+  --foreground: 271 10% 3.9%;
+  --muted-foreground: 271 3.8% 28.1%;
+  /* Background */
+  --background: 241 33% 99%;
+  --muted: 271 4.8% 96%;
+  --card: 0 0% 90%;
+
+  /* Basic */
+  --border: 271 5.9% 88%;
+  --input: 271 5.9% 90%;
+  --ring: 271 5.9% 10%;
+  --radius: 0.5rem;
+
+  /* Change default font */
+  font-family: 'SF Pro Rounded';
+}
+.dark {
+  /* Primary */
+  --primary: 231 95% 85%;
+  /* Foreground */
+  --foreground: 0 0% 98%;
+  --muted-foreground: 271 5% 74.9%;
+  /* Background */
+  --background: 241 20.54% 5.2%;
+  --muted: 271 5.9% 13%;
+  --card: 271 3.7% 24.9%;
+
+  /* Basic */
+  --border: 271 3.7% 22.9%;
+  --input: 271 3.7% 17.9%;
+  --ring: 271 4.9% 83.9%;
+}
+:root {
+  --un-default-border-color: hsl(var(--border) / 1);
+}
+html.dark {
+  color-scheme: dark;
+}
+
+/* Global */
+a {
+  transition: color 0.2s ease;
+  &:hover {
+    color: hsl(var(--primary) / var(--un-text-opacity, 1));
+  }
+}
