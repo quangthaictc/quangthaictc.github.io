@@ -1,4 +1,6 @@
 export const socialLinks = [
+  'vietnamese',
+  'linkedin',
   'github',
   'gitlab',
   'discord',
