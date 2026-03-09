@@ -31,7 +31,7 @@ export default defineConfig({
   // base: '/',
   trailingSlash: 'never',
   // root: './my-project-directory',
-  server: { host: true },
+  // server: { host: true },
 
   // [Adapter]
   // https://docs.astro.build/en/guides/deploy/

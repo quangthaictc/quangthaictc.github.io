@@ -18,6 +18,7 @@ export const SocialLinksSchema = () =>
         const url = links[key]
         if (!url) continue
         const label = {
+          linkedin: 'Linkedin',
           github: 'GitHub',
           gitlab: 'GitLab',
           discord: 'Discord',
